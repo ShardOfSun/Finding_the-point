@@ -1,6 +1,4 @@
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.Set;
 
 public class Main {
     public static final Line L1 = new Line(1.5, -2);
@@ -91,6 +89,11 @@ public class Main {
 
         while (true) {
             System.out.println("\n(1) Enter Point's coordinate\n(2) Show examples\n(0) Exit");
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Incorrect input!");
+                scanner.next();
+                continue;
+            }
             switch (scanner.nextInt()) {
                 case 1 -> { }
                 case 2 -> {
@@ -105,9 +108,19 @@ public class Main {
             }
 
             System.out.println("Enter x and y: ");
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Incorrect input!");
+                scanner.next();
+                continue; }
             double x = scanner.nextDouble();
+
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Incorrect input!");
+                scanner.next();
+                continue; }
             double y = scanner.nextDouble();
+
             System.out.println("(" + x + ", " + y + ") -> " + getColor(x, y));
-            }
         }
+    }
 }
